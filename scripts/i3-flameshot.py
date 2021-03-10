@@ -26,7 +26,7 @@ async def on_new_window(i3, e):
     belongs to flameshot and moves it to the workspace, where flameshot was actually
     invoked.
     '''
-    if e.container.name == "Save As" and e.container.window_class == "flameshot":
+    if e.container.name == "Save screenshot" and e.container.window_class == "flameshot":
         window_id = e.container.window
         await i3.command(f"[id={window_id}] move to workspace {current_workspace}")
         await i3.command(f"[id={window_id}] focus")
@@ -58,7 +58,7 @@ async def consume():
     i3.on(Event.WINDOW_NEW, on_new_window)
 
     subprocess.call(["flameshot", "gui"])
-    await i3.main()
+    await asyncio.wait_for(i3.main(), timeout=10)
 
 
 try:
