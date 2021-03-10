@@ -15,6 +15,7 @@ Within *i3*, you most likely want to assign a corresponding key binding:
 bindsym $mod+e exec --no-startup-id "rofi -show example -modi example:~/.local/bin/example-script"
 ```
 
+
 ### Requirements
 
 ----
@@ -38,6 +39,13 @@ The following scripts are currently available:
 4. Focus the moved window
 
 
+#### pull-workspace.py
+
+1. Opens *rofi* containing a list of all available workspaces
+2. Wait for the user to select a workspace in *rofi*
+3. Move the selected workspace to the current output
+
+
 #### swap-workspace.py
 
 1. Opens *rofi* containing a list of all available workspaces
@@ -57,5 +65,5 @@ The following scripts are currently available:
 
 1. Starts flameshot as usual
 2. After taking the screenshot, additional windows (e.g. save menu)
-   is displayed on the same workspace where you invoked the script
-   from.
+   are displayed on the same workspace where you invoked the script
+   from (instead on the workspace where the screenshot was taken).
