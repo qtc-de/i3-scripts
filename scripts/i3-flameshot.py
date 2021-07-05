@@ -58,7 +58,7 @@ async def consume():
     i3.on(Event.WINDOW_NEW, on_new_window)
 
     subprocess.call(["flameshot", "gui"])
-    await asyncio.wait_for(i3.main(), timeout=10)
+    await asyncio.wait_for(i3.main(), timeout=30)
 
 
 try:
