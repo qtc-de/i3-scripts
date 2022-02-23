@@ -57,12 +57,12 @@ async def consume():
     current_workspace = await get_current_workspace(i3)
     i3.on(Event.WINDOW_NEW, on_new_window)
 
-    subprocess.call(["flameshot", "gui"])
-    await asyncio.wait_for(i3.main(), timeout=30)
+    subprocess.Popen(["flameshot", "gui"], stdin=None, stdout=None, stderr=None, close_fds=True)
+    await asyncio.wait_for(i3.main(), timeout=120)
 
 
 try:
-    loop = asyncio.get_event_loop()
+    loop = asyncio.new_event_loop()
     loop.run_until_complete(consume())
 
 finally:
