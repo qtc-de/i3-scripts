@@ -41,8 +41,12 @@ def print_windows():
 
             node_name = truncate(node.name, name_length - 5)
             class_name = truncate(node.window_class, class_length - 5)
+            workspace_name = node.workspace().name
 
-            print(f"{node.workspace().name}".ljust(workspace_length), end="")
+            if workspace_name == '__i3_scratch':
+                workspace_name = 'S'
+
+            print(f"{workspace_name}".ljust(workspace_length), end="")
             print(f"{class_name}".ljust(class_length), end="")
             print(f"{node_name}".ljust(name_length), end="")
             print(f"{node.window}")
